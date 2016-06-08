@@ -5,6 +5,7 @@ var Stack = function() {
   var storage = {};
   var key = 0
   // Implement the methods below
+  
   someInstance.push = function(value) {
     storage[key] = value
     key++
