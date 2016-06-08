@@ -12,13 +12,15 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    key = 0
-    for(var number in storage) {
-      number = key
-      key++
-    }
     var temp = storage[0]
     delete storage[0]
+    key = 0
+    var newStorage = {}
+    for(var number in storage) {
+      newStorage[key] = storage[number]
+      key++
+    }
+    storage = newStorage
     return temp
   };
 
