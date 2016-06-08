@@ -14,15 +14,16 @@ var Stack = function() {
   }
 
   someInstance.pop = function() {
-    var temp = storage[key];
+    var temp = storage[key-1];
     delete storage[key];
-    key = Math.max(key--, 0);
-    console.log("pop: " + temp)
-    return temp;
+    console.log("key: " + key + "pop: " + temp)
+    key = Math.max(key-1, 0);
+    console.log("after popping, key is now at: " + key)
+    return temp;  
   }
 
   someInstance.size = function() {
-    return key;
+    return key
   }
 
   return someInstance;
