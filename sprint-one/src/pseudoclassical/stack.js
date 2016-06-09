@@ -5,9 +5,10 @@ var Stack = function() {
   this.storage = {}
   this.key = 0
 
+
 };
 
-var Stack.prototype = {
+Stack.prototype = {
 
   push: function(value){
     this.storage[this.key] = value;
@@ -26,11 +27,11 @@ var Stack.prototype = {
 
   size: function() {
     return this.key;
-  }
+  },
+
+  constructor: Stack
 
 };
-
-
 
 
 // Stack.prototype.push = function(value){
@@ -48,7 +49,7 @@ var Stack.prototype = {
 //     return temp;  
 //   }
 
-// Stack.prototype.size: function() {
+// Stack.prototype.size = function() {
 //     return this.key;
 //   }
 
