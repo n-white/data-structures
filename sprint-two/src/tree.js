@@ -18,8 +18,7 @@ var treeMethods = {
   contains: function(target) {
 
     var searchTree = function(treeStructure) {
-      // debugger;
-      // debugger;
+
       if (treeStructure.value === target) {
         return true;
       } else if (treeStructure.children.length) {
@@ -46,6 +45,26 @@ var treeMethods = {
 
     return searchTree(this);
 
+    // var result = []
+
+    // var searchTree = function(treeStructure) {
+
+    //   if (treeStructure.value === target) {
+    //     result.push(true);
+    //   } else if (treeStructure.children.length) {
+    //       for(var i = 0; i < treeStructure.children.length; i++) {
+    //         return searchTree(treeStructure.children[i]);  
+    //       }           
+    //   } else {
+    //     result.push(false);
+    //   }
+
+    // };
+
+    // searchTree(this);
+
+    // return _.contains(result, true)
+
   }
 
 };
@@ -55,3 +74,13 @@ var treeMethods = {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+
+
+
+
+    
+
+
+
+
