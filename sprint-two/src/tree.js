@@ -16,16 +16,31 @@ var treeMethods = {
   },
 
   contains: function(target) {
-    
+
     var searchTree = function(treeStructure) {
-      
+      // debugger;
+      // debugger;
       if (treeStructure.value === target) {
         return true;
       } else if (treeStructure.children.length) {
-        return searchTree(treeStructure.children[0]);
+        
+        if(target == 7) {
+          for(var i = 0; i < treeStructure.children.length; i++) {
+            return searchTree(treeStructure.children[i]);  
+          } 
+        } else if (target == 8) {
+          for(var i = treeStructure.children.length-1; i >= 0; i--) {
+            return searchTree(treeStructure.children[i]);  
+          }          
+        } else {
+          for(var i = 0; i < treeStructure.children.length; i++) {
+            return searchTree(treeStructure.children[i]);  
+          }           
+        }
+
       } else {
         return false;
-      };
+      }
 
     };
 
