@@ -11,21 +11,21 @@ var Tree = function(value) {
 var treeMethods = {
 
   addChild: function(value) {
-    
-    this.children.push({value: value, children: []});
+    this.children.push(Tree(value));
     console.log(this);
   },
 
   contains: function(target) {
     
     var searchTree = function(treeStructure) {
-      // debugger
+      
       if (treeStructure.value === target) {
         return true;
-      } else if (treeStructure.children) {
+      } else if (treeStructure.children.length) {
         return searchTree(treeStructure.children[0]);
+      } else {
+        return false;
       };
-      return false;
 
     };
 
