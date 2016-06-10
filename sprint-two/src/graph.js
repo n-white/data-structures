@@ -13,9 +13,6 @@ var graphNode = function(value) {
   this.value = value;
 }
 
-// Node.prototype.addEdge = function(edge) {
-//   this.edgeList.push(edge)
-// }
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
