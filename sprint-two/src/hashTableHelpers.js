@@ -28,6 +28,10 @@ var LimitedArray = function(limit) {
       callback(storage[i], i, storage);
     }
   };
+  limitedArray.remove = function(index) {
+    checkLimit(index);
+    storage.splice(index, 1);
+  };
 
   var checkLimit = function(index) {
     if (typeof index !== 'number') {

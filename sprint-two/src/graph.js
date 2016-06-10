@@ -51,7 +51,6 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
   this.edgeList.push([fromNode, toNode]);
-  console.log(this.edgeList);
 };
 
 // Remove an edge between any two specified (by value) nodes.
