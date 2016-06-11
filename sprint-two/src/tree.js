@@ -18,27 +18,17 @@ var treeMethods = {
 
   contains: function(target) {
 
+    if (this.value === target) {
+      return true;
+    }
 
-
-    var searchTree = function(treeStructure) {
-
-      if (treeStructure.value === target) {
+    for (var i = 0; i < this.children.length; i++) {
+      if (this.children[i].contains(target)) {
         return true;
-      } else if (treeStructure.children.length) {
-          var result = null;
-          for(var i = 0; result == null && i < treeStructure.children.length; i++) {
-            result = searchTree(treeStructure.children[i]);                  
-          }
-          return result;
-      } else {
-        return;
       }
+    }
 
-    };
-
-    return searchTree(this) === true ? true : false;
-
-
+    return false;
 
   }
 
@@ -52,65 +42,15 @@ var treeMethods = {
  */
 
 
-//WORKING IMPLEMENTATION BUT WONT WORK UNIVERSALLY:
-
-
-  //   var searchTree = function(treeStructure) {
-
-  //     if (treeStructure.value === target) {
-  //       return true;
-  //     } else if (treeStructure.children.length) {
-        
-  //       if(target == 7) {
-  //         for(var i = 0; i < treeStructure.children.length; i++) {
-  //           return searchTree(treeStructure.children[i]);  
-  //         } 
-  //       } else if (target == 8) {
-  //         for(var i = treeStructure.children.length-1; i >= 0; i--) {
-  //           return searchTree(treeStructure.children[i]);  
-  //         }          
-  //       } else {
-  //         for(var i = 0; i < treeStructure.children.length; i++) {
-  //           return searchTree(treeStructure.children[i]);  
-  //         }           
-  //       }
-
-  //     } else {
-  //       return false;
-  //     }
-
-  //   };
-
-  //   return searchTree(this);
 
 
 
-  // }
+// var treeSumReduce = function(node) {
 
-// OLD NON-WORKING IMPLEMENTATION (KEEPING IN CASE I WANT A REFERENCE LATER)
+//   return _.reduce(node.children, function(accumulator, item) {
 
+//     return accumulator + treeSumReduce(node)
 
-    
+//   }, node.value)
 
-
-
-
-    // var result = []
-
-    // var searchTree = function(treeStructure) {
-
-    //   if (treeStructure.value === target) {
-    //     result.push(true);
-    //   } else if (treeStructure.children.length) {
-    //       for(var i = 0; i < treeStructure.children.length; i++) {
-    //         return searchTree(treeStructure.children[i]);  
-    //       }           
-    //   } else {
-    //     result.push(false);
-    //   }
-
-    // };
-
-    // searchTree(this);
-
-    // return _.contains(result, true)
+// }
