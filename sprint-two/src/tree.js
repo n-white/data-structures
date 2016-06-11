@@ -9,6 +9,7 @@ var Tree = function(value) {
   return newTree;
 };
 
+
 var treeMethods = {
 
   addChild: function(value) {
@@ -17,33 +18,82 @@ var treeMethods = {
 
   contains: function(target) {
 
+
+
     var searchTree = function(treeStructure) {
 
       if (treeStructure.value === target) {
         return true;
       } else if (treeStructure.children.length) {
-        
-        if(target == 7) {
-          for(var i = 0; i < treeStructure.children.length; i++) {
-            return searchTree(treeStructure.children[i]);  
-          } 
-        } else if (target == 8) {
-          for(var i = treeStructure.children.length-1; i >= 0; i--) {
-            return searchTree(treeStructure.children[i]);  
-          }          
-        } else {
-          for(var i = 0; i < treeStructure.children.length; i++) {
-            return searchTree(treeStructure.children[i]);  
-          }           
-        }
-
+          var result = null;
+          for(var i = 0; result == null && i < treeStructure.children.length; i++) {
+            result = searchTree(treeStructure.children[i]);                  
+          }
+          return result;
       } else {
-        return false;
+        return;
       }
 
     };
 
-    return searchTree(this);
+    return searchTree(this) === true ? true : false;
+
+
+
+  }
+
+};
+
+
+
+
+/*
+ * Complexity: What is the time complexity of the above functions?
+ */
+
+
+//WORKING IMPLEMENTATION BUT WONT WORK UNIVERSALLY:
+
+
+  //   var searchTree = function(treeStructure) {
+
+  //     if (treeStructure.value === target) {
+  //       return true;
+  //     } else if (treeStructure.children.length) {
+        
+  //       if(target == 7) {
+  //         for(var i = 0; i < treeStructure.children.length; i++) {
+  //           return searchTree(treeStructure.children[i]);  
+  //         } 
+  //       } else if (target == 8) {
+  //         for(var i = treeStructure.children.length-1; i >= 0; i--) {
+  //           return searchTree(treeStructure.children[i]);  
+  //         }          
+  //       } else {
+  //         for(var i = 0; i < treeStructure.children.length; i++) {
+  //           return searchTree(treeStructure.children[i]);  
+  //         }           
+  //       }
+
+  //     } else {
+  //       return false;
+  //     }
+
+  //   };
+
+  //   return searchTree(this);
+
+
+
+  // }
+
+// OLD NON-WORKING IMPLEMENTATION (KEEPING IN CASE I WANT A REFERENCE LATER)
+
+
+    
+
+
+
 
     // var result = []
 
@@ -64,23 +114,3 @@ var treeMethods = {
     // searchTree(this);
 
     // return _.contains(result, true)
-
-  }
-
-};
-
-
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */
-
-
-
-
-
-    
-
-
-
-
