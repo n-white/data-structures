@@ -1,24 +1,39 @@
 var BinarySearchTree = function(value) {
 
-  var newTree = Object.create(treeMethods);
-  newTree.value = value;
-  newTree.children = [];
-  return newTree;
+  var newBinaryTree = Object.create(binaryTreeMethods);
+  newBinaryTree.value = value;
+  newBinaryTree.left = []
+  newBinaryTree.right = []
+  return newBinaryTree;
 
 };
 
-var treeMethods = {
+var binaryTreeMethods = {
 
-  left: function(currentNode, newNode) {
 
-  },
+  insert: function(node) {
+    var newNode = BinarySearchTree(number);
+    var currentNode = this;
 
-  right: function(currentNode, newNode) {
+    while (currentNode.value !== null) {
+      if (number > currentNode.value) {
+        
+        if (currentNode.right == null) {
+          currentNode.right = newNode;  
+        } else {
+          currentNode = currentNode.right;
+        }
 
-  },
+      } else if (number < currentNode.value) {
 
-  insert: function(tree) {
-  
+        if (currentNode.left == null) {
+          currentNode.left = newNode;
+        } else {
+          currentNode = currentNode.left;
+        }
+        
+      }
+    }
   },
 
   contains: function(tree) {
