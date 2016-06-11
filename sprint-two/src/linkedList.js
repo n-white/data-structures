@@ -22,7 +22,7 @@ var LinkedList = function() {
   list.tail = null;
   list.length = 0;
   list.nodes = {};
-  list.currentNode = list.head;
+  
 
   list.addToTail = function(value) {
     // if(list.head == null) {
@@ -30,42 +30,72 @@ var LinkedList = function() {
     //   // list.head.node.next = 'list.tail';
     // }
     // list.tail = Node(value);
+    // if(list.head === null) {
+    //   list.tail = Node(value);
+    //   list.head = Node(value);
+    //   list.nodes = Node(value);
+    //   list.length++;
+    // } else if (list.length > 0) {
+    //   list.head = list.tail;
+    //   list.tail = Node(value);
+    //   list.length++;
+    // } 
+
+    var newNode = Node(value);
+
     if(list.head === null) {
-      list.tail = Node(value);
-      list.head = Node(value);
-      list.nodes = Node(value);
-      list.length++;
-    } else if (list.length > 0) {
-      list.head = list.tail;
-      list.tail = Node(value);
-      list.length++;
-    } 
+      list.head = newNode;
+      list.tail = newNode;
+    } else {
+      list.tail.next = newNode;
+      list.tail = newNode;
+    }
 
 
   };
 
   list.removeHead = function() {
-    if(list.length > 0) {
-      var temp = list.head;
-      delete list.head;
-      list.head = list.tail;
-      return temp.value;
+    // if(list.length > 0) {
+    //   var temp = list.head;
+    //   delete list.head;
+    //   list.head = list.tail;
+    //   return temp.value;
+    // }
+    var formerHead = list.head.value;
+
+    if(list.head !== null) {
+      list.head = list.head.next;
     }
+
+    return formerHead;
+
   };
 
   list.contains = function(target) {
+      
+      // var found = false;
+      // var currentNode = list.head;
 
-      // while(list.currentNode.value != target && list.currentNode.next)) {
-      //   list.currentNode = list.nodes.next  
+      function helperSearch (nodeList) {
+        if(nodeList === null) {
+          return false;
+        } else if (nodeList.value === target) {
+          return true;
+        } else {
+          return helperSearch(nodeList.next)
+        }
+      }
+
+      // while (currentNode !== null) {
+        
+      //   if (currentNode.value === target) {
+      //     found = true;
+      //   }
+      //   currentNode = currentNode.next;
       // }
       
-      // list.currentNode.next = list
-      
-      if(list.head.value === target || list.tail.value === target) {
-        return true;
-      } else {
-        return false;
-      }
+      return helperSearch(list.head)
+      // return found;
 
   };
 
