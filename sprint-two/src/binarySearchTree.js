@@ -77,17 +77,16 @@ var binaryTreeMethods = {
 
   depthFirstLog: function(callback) {
 
-    var tempTree = this;
+    callback(this.value);
 
+    if (this.left) {
+      this.left.depthFirstLog(callback);
+    }
+    if (this.right) {
+      this.right.depthFirstLog(callback);
+    }
 
-    var searchTree = function(tree) {
-      
-    };
-
-    return searchTree(tempTree);
-
-  },
-
+  }
 };
 
 
