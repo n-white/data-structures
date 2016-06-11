@@ -10,15 +10,7 @@ HashTable.prototype.insert = function(k, v) {
   if (this._storage.get(index) === undefined) {
     this._storage.set(index, [[k, v]]);
   } else {
-    // debugger
-    // var inserted = false;
-    // this._storage.each(function(bucketItem, key) {
-    //   if (key === k) {
-    //     bucketItem[key] = v;
-    //     inserted = true;
-    //   }
-    // });
-    
+
     var temp = this._storage.get(index);
     var inserted = false;
 
