@@ -10,10 +10,9 @@ var BinarySearchTree = function(value) {
 
 var binaryTreeMethods = {
 
-
   insert: function(number) {
 
-    var biTree = BinarySearchTree(number)
+    var biTree = BinarySearchTree(number);
     var currentNode = this;
 
     while (currentNode.value !== biTree.value) {
@@ -42,11 +41,50 @@ var binaryTreeMethods = {
     }
   },
 
-  contains: function(tree) {
+  contains: function(number) {
+    var found = false;
+    var currentNode = this;
 
+    while (currentNode !== null && found === false) {
+      // check if value of current node is equal to number
+      if (currentNode.value === number) {
+        // if equal, change value of found to be true
+        found = true;
+      // check if value of number is greater than value of current node
+      } else if (number > currentNode.value) {
+        // if greater, check if value of right node of current node is null
+        if (currentNode.right === null) {
+          // if null, reassign current node to equal null
+          currentNode = null;
+        } else {
+          // if not null, reassign value of current node to equal value of right property        
+          currentNode = currentNode.right;
+        }
+      // if its not greater, we assume it's less than with an else statement
+      } else {
+        // check if value of left node of current node is null
+          if (currentNode.left === null) {
+            // if null, reassign current node to equal null
+            currentNode = null;
+          } else {
+            // if not null, reassign value of current node to equal value of left property
+            currentNode = currentNode.left;
+          }
+      }
+    }
+    return found;
   },
 
-  depthFirstLog: function(tree) {
+  depthFirstLog: function(callback) {
+
+    var tempTree = this;
+
+
+    var searchTree = function(tree) {
+      
+    };
+
+    return searchTree(tempTree);
 
   },
 
